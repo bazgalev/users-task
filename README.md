@@ -12,5 +12,5 @@
 
 Поиск должен быть в одном инпуте.
 
-## Instalation ##
+## Installation ##
 TODO 
