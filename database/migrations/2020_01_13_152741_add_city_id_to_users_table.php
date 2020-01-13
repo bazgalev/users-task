@@ -17,7 +17,7 @@ class AddCityIdToUsersTable extends Migration
             $table->unsignedBigInteger('city_id')->after('patronymic');
             $table->foreign('city_id')
                 ->references('id')
-                ->on('users')
+                ->on('cities')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -33,7 +33,10 @@ class AddCityIdToUsersTable extends Migration
     {
 
         Schema::table('users', function (Blueprint $table) {
-//            $table->dropForeign('cities_city')
+            $table->dropForeign('users_city_id_foreign');
+            $table->dropColumn('city_id');
         });
+
+
     }
 }
