@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * Class StoreUserRequest
+ * Class UpdateUserRequest
  * @property string first_name
  * @property string last_name
  * @property string patronymic
@@ -13,7 +13,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @property int city_id
  * @package App\Http\Requests
  */
-class StoreUserRequest extends FormRequest
+class UpdateUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -32,14 +32,12 @@ class StoreUserRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
+        return [
             'first_name' => 'string|min:1|max:255',
             'last_name' => 'string|min:1|max:255',
             'patronymic' => 'string|min:1|max:255',
-            'email' => 'email|unique:users,email',
+            'email' => 'email|unique:users,email,' . $this->email,
             'city_id' => 'exists:cities,id'
         ];
-
-        return array_map(fn(string $rule) => 'required|' . $rule, $rules);
     }
 }

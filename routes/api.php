@@ -14,11 +14,6 @@ use Illuminate\Http\Request;
 |
 */
 
-//TODO: delete this route
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-
 Route::namespace('Api')->group(function () {
     Route::resource('users', 'UsersController', ['except' => ['create', 'edit']]);
     Route::get('cities', 'CitiesController@index');

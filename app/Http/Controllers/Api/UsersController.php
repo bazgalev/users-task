@@ -4,11 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
-use App\Services\UserManageService;
-use App\User;
+use App\Http\Services\UserManageService;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -36,12 +35,14 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param StoreUserRequest $request
+     * @return JsonResponse
      */
     public function store(StoreUserRequest $request)
     {
+        $user = $this->service->create($request);
 
+        return new JsonResponse($user, 201);
     }
 
     /**
@@ -61,23 +62,26 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param UpdateUserRequest $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $user = $this->service->update($request, $id);
+        return new JsonResponse($user, 201);
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
+     * @throws \Exception
      */
     public function destroy($id)
     {
-        //
+        $this->service->destroy($id);
+        return new JsonResponse(null, 204);
     }
 }
