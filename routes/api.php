@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +14,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//TODO: delete this route
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::namespace('Api')->group(function () {
+    Route::resource('users', 'UsersController', ['except' => ['create', 'edit']]);
+    Route::resource('cities', 'CitiesController', ['except' => ['create', 'edit']]);
 });
