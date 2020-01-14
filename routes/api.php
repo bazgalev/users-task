@@ -21,5 +21,5 @@ use Illuminate\Http\Request;
 
 Route::namespace('Api')->group(function () {
     Route::resource('users', 'UsersController', ['except' => ['create', 'edit']]);
-    Route::resource('cities', 'CitiesController', ['except' => ['create', 'edit']]);
+    Route::get('cities', 'CitiesController@index');
 });
