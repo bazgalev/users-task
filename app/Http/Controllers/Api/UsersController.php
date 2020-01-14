@@ -42,7 +42,7 @@ class UsersController extends Controller
     {
         $user = $this->service->create($request);
 
-        return new JsonResponse($user, 201);
+        return new JsonResponse($user);
     }
 
     /**
