@@ -3,14 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UsersIndexRequest;
-use App\Http\Services\UserManageService;
+use App\Services\UserManageService;
 use App\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
+    protected UserManageService $service;
+
+    public function __construct(UserManageService $service)
+    {
+        $this->service = $service;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +27,7 @@ class UsersController extends Controller
      */
     public function index(UsersIndexRequest $request)
     {
-        $service = new UserManageService();
-        $users = $service->getAll($request);
+        $users = $this->service->getAll($request->name, $request->cityId);
 
         return new JsonResponse($users);
     }
@@ -32,20 +39,22 @@ class UsersController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+
     }
 
     /**
      * Display the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse|void
      */
     public function show($id)
     {
-        //
+        $user = $this->service->one($id);
+
+        return new JsonResponse($user);
     }
 
 
