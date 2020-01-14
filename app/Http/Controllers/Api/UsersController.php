@@ -26,7 +26,7 @@ class UsersController extends Controller
      */
     public function index(UsersIndexRequest $request)
     {
-        $users = $this->service->getAll($request->name, $request->cityId);
+        $users = $this->service->getAll($request);
 
         return new JsonResponse($users);
     }

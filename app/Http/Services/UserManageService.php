@@ -6,25 +6,25 @@ namespace App\Http\Services;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UsersIndexRequest;
 use App\User;
 
 class UserManageService
 {
     /**
-     * @param string|null $name
-     * @param int|null $cityId
+     * @param UsersIndexRequest $request
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getAll(?string $name, ?int $cityId): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public function getAll(UsersIndexRequest $request): \Illuminate\Contracts\Pagination\LengthAwarePaginator
     {
         $query = User::query();
-        if (isset($name)) {
+        if (isset($request->name)) {
             $condition = 'CONCAT(first_name," ",last_name," ",patronymic) LIKE ?';
-            $query->whereRaw($condition, ["%$name%"]);
+            $query->whereRaw($condition, ["%$request->name%"]);
         }
 
-        if (isset($cityId)) {
-            $query->where('city_id', $cityId);
+        if (isset($request->cityId)) {
+            $query->where('city_id', $request->cityId);
         }
 
         return $query->with('city')->paginate(30);
