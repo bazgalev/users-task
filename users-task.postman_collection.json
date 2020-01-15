@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "dd8424c9-149c-4c13-a84d-23acc6344a1b",
-		"name": "weight-app",
+		"_postman_id": "01c00dff-41bb-4d09-ac98-4ebd0ce8cb85",
+		"name": "users-task",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -89,12 +89,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\t\n\t\"first_name\":\"{{$randomFirstName}}\",\n\t\"last_name\": \"{{$randomLastName}}\",\n\t\"patronymic\": \"{{$randomWord}}\",\n\t\"email\": \"{{$randomEmail}}\",\n\t\"city_id\": 1\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\t\n\t\"first_name\":\"{{$randomFirstName}}\",\n\t\"last_name\": \"{{$randomLastName}}\",\n\t\"patronymic\": \"{{$randomWord}}\",\n\t\"email\": \"{{$randomEmail}}\",\n\t\"city_id\": 1\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/users",
@@ -116,12 +111,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{host}}/api/users/178",
@@ -151,12 +141,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"first_name\": \"{{$randomFirstName}}\",\n\t\"last_name\": \"{{$randomLastName}}\",\n\t\"patronymic\": \"{{$randomWord}}\",\n\t\"email\": \"{{$randomEmail}}\",\n\t\"city_id\": 2\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
+							"raw": "{\n\t\"first_name\": \"{{$randomFirstName}}\",\n\t\"last_name\": \"{{$randomLastName}}\",\n\t\"patronymic\": \"{{$randomWord}}\",\n\t\"email\": \"{{$randomEmail}}\",\n\t\"city_id\": 2\n}"
 						},
 						"url": {
 							"raw": "{{host}}/api/users/15",
@@ -174,6 +159,28 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6ec70f51-7d93-4f3b-8c1d-7e80624179c8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "752ccafc-dfb5-46a0-b3bf-0ae8595d052a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}
