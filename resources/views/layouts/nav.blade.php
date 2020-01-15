@@ -35,10 +35,10 @@
             </select>
 
             @if(is_null($request->name))
-                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Поиск по фио"
+                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Поиск по ФИО"
                        aria-label="Search">
             @else
-                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Поиск по фио"
+                <input name="name" class="form-control mr-sm-2" type="search" placeholder="Поиск по ФИО"
                        aria-label="Search" value="{{$request->name}}">
             @endif
 

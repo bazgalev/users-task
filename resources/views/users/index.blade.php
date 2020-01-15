@@ -14,6 +14,7 @@
             <th scope="col">Отчество</th>
             <th scope="col">E-mail</th>
             <th scope="col">Город</th>
+            <th scope="col"></th>
         </tr>
         </thead>
         <tbody>
@@ -25,6 +26,17 @@
                 <td>{{$user->patronymic}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->city->name}}</td>
+                <td>
+                    <a href="">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a href="">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                    <a href="">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
             </tr>
         @endforeach
         </tbody>
