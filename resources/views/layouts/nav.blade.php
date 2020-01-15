@@ -21,6 +21,7 @@
                         <option value="{{$city->id}}">{{$city->name}}</option>
                     @endforeach
                 @else
+                    <option selected value="">Не указано</option>
                     @foreach($cities as $city)
                         @if($city->id == $request->cityId)
                             <option selected value="{{$city->id}}">{{$city->name}}</option>
