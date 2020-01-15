@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
-use App\Http\Requests\StoreUserRequest;
+use App\Http\Requests\StoreUserRequest as StoreUserRequestAlias;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
 use App\Http\Services\UserManageService;
@@ -45,21 +45,25 @@ class UsersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|Response|\Illuminate\View\View
      */
     public function create()
     {
-        return view('users.create');
+        $cities = City::all();
+        return view('users.create', [
+            'cities' => $cities
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreUserRequestAlias $request
      * @return Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(StoreUserRequestAlias $request)
     {
+        var_dump($request->validationData());die;
         $user = $this->service->create($request);
 
         return redirect(route('users.show', $user->id));
