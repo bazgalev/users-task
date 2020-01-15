@@ -14,11 +14,11 @@
 
 ## Установка ##
 
-Один из вариантов развертывания в dev окружении: 
+Один из вариантов развертывания: 
 1. Выполнить `git clone https://github.com/bazgalev/users-task.git`
 2. Выполнить `composer install`
 3. В директории проекта выполнить `cp .env.example .env`
-4. Настроить .env file
+4. Настроить `.env` файл
 5. Выполнить `php artisan migrate`
 6. Выполнить `php artisan db:seed` (для заполнения тестовыми данными)
 7. Выполнить `php artisan key:generate`
