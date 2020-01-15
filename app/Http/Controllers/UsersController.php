@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
@@ -32,8 +33,13 @@ class UsersController extends Controller
     public function index(UsersIndexRequest $request)
     {
         $pagination = $this->service->getAll($request);
+        $cities = City::all();
 
-        return view('users.index', ['pagination' => $pagination]);
+        return view('users.index', [
+            'pagination' => $pagination,
+            'cities' => $cities,
+            'request' => $request
+        ]);
     }
 
     /**

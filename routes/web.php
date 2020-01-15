@@ -11,4 +11,5 @@
 |
 */
 
+Route::redirect('/', '/users');
 Route::resource('users', 'UsersController');

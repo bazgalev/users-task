@@ -27,7 +27,7 @@ class UserManageService
             $query->where('city_id', $request->cityId);
         }
 
-        return $query->with('city')->paginate(30);
+        return $query->with('city')->paginate(15);
     }
 
     /**
