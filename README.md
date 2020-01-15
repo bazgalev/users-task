@@ -13,4 +13,10 @@
 Поиск должен быть в одном инпуте.
 
 ## Installation ##
-TODO 
+
+Один из вариантов: 
+1. git clone https://github.com/bazgalev/users-task.git
+2. composer install
+3. php artisan serve
+
+
