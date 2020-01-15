@@ -36,7 +36,7 @@ class UpdateUserRequest extends FormRequest
             'first_name' => 'string|min:1|max:255',
             'last_name' => 'string|min:1|max:255',
             'patronymic' => 'string|min:1|max:255',
-            'email' => 'email|unique:users,email,' . $this->email,
+            'email' => 'email|unique:users,email,' . request()->route()->user,
             'city_id' => 'exists:cities,id'
         ];
     }

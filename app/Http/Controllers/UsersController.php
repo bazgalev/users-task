@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
 use App\Http\Services\UserManageService;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class UsersController extends Controller
@@ -70,18 +69,6 @@ class UsersController extends Controller
         return redirect(route('users.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        $user = $this->service->one($id);
-
-        return view('users.show', ['user' => $user]);
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -91,13 +78,19 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        return view('users.edit');
+        $user = $this->service->one($id);
+        $cities = City::all();
+
+        return view('users.edit', [
+            'user' => $user,
+            'cities' => $cities
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
+     * @param UpdateUserRequest $request
      * @param int $id
      * @return Response
      */
@@ -105,7 +98,9 @@ class UsersController extends Controller
     {
         $user = $this->service->update($request, $id);
 
-        return view('users.show', ['user' => $user]);
+        //TODO: display operation info
+
+        return redirect(route('users.index'));
     }
 
     /**
