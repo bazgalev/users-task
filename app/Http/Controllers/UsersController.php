@@ -62,7 +62,7 @@ class UsersController extends Controller
     {
         $user = $this->service->create($request);
 
-        //TODO:
+        return redirect(route('users.show', $user->id));
     }
 
     /**
@@ -75,7 +75,7 @@ class UsersController extends Controller
     {
         $user = $this->service->one($id);
 
-        return \view('users.show', ['user' => $user]);
+        return view('users.show', ['user' => $user]);
     }
 
     /**
@@ -100,7 +100,7 @@ class UsersController extends Controller
     {
         $user = $this->service->update($request, $id);
 
-//        TODO
+        return view('users.show', ['user' => $user]);
     }
 
     /**
@@ -116,6 +116,6 @@ class UsersController extends Controller
 
         //TODO: display operation info
 
-        return redirect(route('users.index'));
+        return view('users.index');
     }
 }

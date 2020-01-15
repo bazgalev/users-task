@@ -1,3 +1,6 @@
+@extends('layouts.main')
 
+@section('content')
+    @include('nav.main')
 
-{{'TODO: create form page'}}
+@endsection

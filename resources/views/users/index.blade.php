@@ -1,10 +1,12 @@
 <?php
 /** @var \Illuminate\Contracts\Pagination\LengthAwarePaginator $pagination */
 ?>
-@extends('layouts.layout')
+@extends('layouts.main')
 
-@section('title','Пользователи')
 @section('content')
+
+    @include('nav.index')
+
     <table class="table table-striped mt-3">
         <thead>
         <tr>
@@ -29,9 +31,6 @@
                 <td>
                     <div class="d-flex">
 
-                    <a href="{{route('users.show',$user->id)}}">
-                        <i class="px-1 fas fa-eye"></i>
-                    </a>
                     <a href="{{route('users.edit',$user->id)}}">
                         <i class="px-1 fas fa-pen"></i>
                     </a>
