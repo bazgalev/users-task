@@ -63,10 +63,11 @@ class UsersController extends Controller
      */
     public function store(StoreUserRequestAlias $request)
     {
-        var_dump($request->validationData());die;
         $user = $this->service->create($request);
 
-        return redirect(route('users.show', $user->id));
+        //TODO: view user details
+
+        return redirect(route('users.index'));
     }
 
     /**
@@ -120,6 +121,6 @@ class UsersController extends Controller
 
         //TODO: display operation info
 
-        return view('users.index');
+        return redirect(route('users.index'));
     }
 }

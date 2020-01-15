@@ -12,4 +12,4 @@
 */
 
 Route::redirect('/', '/users');
-Route::resource('users', 'UsersController');
+Route::resource('users', 'UsersController', ['except' => 'show']);
