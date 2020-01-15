@@ -30,8 +30,8 @@ class UsersIndexRequest extends FormRequest
     public function rules()
     {
         return [
-            'cityId' => 'integer|exists:cities,id',
-            'name' => 'string'
+            'cityId' => 'integer|exists:cities,id|nullable',
+            'name' => 'string|nullable'
         ];
     }
 }
