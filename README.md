@@ -18,5 +18,6 @@
 1. git clone https://github.com/bazgalev/users-task.git
 2. composer install
 3. php artisan serve
+4. visit http://localhost:8000/
 
 
