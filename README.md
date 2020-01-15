@@ -1,4 +1,4 @@
-## Task ##
+## Задание ##
 Разработать приложение по управлению пользователями.
 Сделать возможность поиска по ФИО.
 Сделать фильтрацию пользователей по городам.
@@ -12,7 +12,7 @@
 
 Поиск должен быть в одном инпуте.
 
-## Installation ##
+## Установка ##
 
 Один из вариантов развертывания в dev окружении: 
 1. Выполнить `git clone https://github.com/bazgalev/users-task.git`
@@ -23,10 +23,22 @@
 6. Выполнить `php artisan db:seed` (для заполнения тестовыми данными)
 7. Выполнить `php artisan key:generate`
 5. Выполнить `php artisan serve`
-6. visit http://localhost:8000/
+6. Клик http://localhost:8000/
 
-## External API docs ##
+## Комментарий ##
 
+#### Поиск по ФИО ####
+Релизован простой поиск по ФИО через `CONCAT(фамилия, имя, отчество) LIKE %foo%` <br>
+В рамках оптимизации, думаю, можно было бы использовать следующий вариант:
+1. Создать представление: <br>
+`CREATE VIEW users_view AS SELECT id, CONCAT(фамилия, имя, отчество) as name FROM users;`
+2. Проиндексировать `users_view.name`.
+3. Поиск осуществлять по полю `users.name`, брать ids и делать запрос в users.
+
+Но, вероятнее всего, лучше прибегнуть к системам поиска, таким как sphinx или elastic search.
+
+#### Внешнее API ####
 Список роутов для внешнего API: <br>
 https://documenter.getpostman.com/view/9306397/SWLk4RY8?version=latest
 
+Для внешнего API добавлен middleware https://packagist.org/packages/barryvdh/laravel-cors для работы с CORS
