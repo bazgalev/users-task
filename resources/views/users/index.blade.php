@@ -27,13 +27,13 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->city->name}}</td>
                 <td>
-                    <a href="">
+                    <a href="{{route('users.show',$user->id)}}">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <a href="">
+                    <a href="{{route('users.edit',$user->id)}}">
                         <i class="fas fa-pen"></i>
                     </a>
-                    <a href="">
+                    <a href="{{route('users.destroy',$user->id)}}">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>

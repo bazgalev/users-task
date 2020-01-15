@@ -9,9 +9,6 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('users.index')}}">Пользователи <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Города</a>
-            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="GET" id="search-form">
             <select name="cityId" form="search-form" class="custom-select form-control mr-sm-2"

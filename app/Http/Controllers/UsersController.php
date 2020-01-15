@@ -49,7 +49,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -75,7 +75,7 @@ class UsersController extends Controller
     {
         $user = $this->service->one($id);
 
-        //TODO:
+        return \view('users.show', ['user' => $user]);
     }
 
     /**
@@ -86,7 +86,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('users.edit');
     }
 
     /**
