@@ -113,5 +113,9 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $user = $this->service->destroy($id);
+
+        //TODO: display operation info
+
+        return redirect(route('users.index'));
     }
 }

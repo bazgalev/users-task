@@ -11,6 +11,7 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="GET" id="search-form">
+            @csrf
             <select name="cityId" form="search-form" class="custom-select form-control mr-sm-2"
                     aria-label="City-select">
 
