@@ -7,7 +7,7 @@ namespace App\Http\Services;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
-use App\User;
+use App\Entities\User;
 
 class UserManageService
 {

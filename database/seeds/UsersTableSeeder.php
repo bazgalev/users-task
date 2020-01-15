@@ -1,7 +1,7 @@
 <?php
 
-use App\City;
-use App\User;
+use App\Entities\City;
+use App\Entities\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder

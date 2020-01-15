@@ -1,5 +1,5 @@
 <?php
-/** @var App\City[] $cities */
+/** @var \App\Entities\City[] $cities */
 ?>
 
 @extends('layouts.main')

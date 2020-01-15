@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\City;
+use App\Entities\City;
 use App\Http\Requests\StoreUserRequest as StoreUserRequestAlias;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
