@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
-use App\Http\Services\UserManageService;
+use App\Services\UserManageService;
 use Illuminate\Http\JsonResponse;
 
 class UsersController extends Controller

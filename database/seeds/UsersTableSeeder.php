@@ -1,7 +1,7 @@
 <?php
 
-use App\Entities\City;
-use App\Entities\User;
+use App\Eloquent\CityEloquent;
+use App\Eloquent\UserEloquent;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -17,10 +17,10 @@ class UsersTableSeeder extends Seeder
     {
         $this->call(CitiesSeeder::class);
 
-        foreach (City::all() as $city) {
+        foreach (CityEloquent::all() as $city) {
             $count = random_int(0, 15);
             for ($i = 0; $i < $count; $i++) {
-                $user = factory(User::class)->make();
+                $user = factory(UserEloquent::class)->make();
                 $city->users()->save($user);
             }
         }

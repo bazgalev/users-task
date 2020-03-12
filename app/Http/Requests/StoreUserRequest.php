@@ -42,4 +42,9 @@ class StoreUserRequest extends FormRequest
 
         return array_map(fn(string $rule) => 'required|' . $rule, $rules);
     }
+
+    public function getDto(): StoreUserDto
+    {
+
+    }
 }

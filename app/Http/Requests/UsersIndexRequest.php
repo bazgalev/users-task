@@ -2,12 +2,13 @@
 
 namespace App\Http\Requests;
 
+use App\Dto\UsersIndexDto;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UsersIndexRequest
  * @property int $cityId
- * @property string $name
+ * @property string $name   Строка поиска по ФИО
  * @package App\Http\Requests
  */
 class UsersIndexRequest extends FormRequest
@@ -33,5 +34,10 @@ class UsersIndexRequest extends FormRequest
             'cityId' => 'integer|exists:cities,id|nullable',
             'name' => 'string|nullable'
         ];
+    }
+
+    public function getDto(): UsersIndexDto
+    {
+        return new UsersIndexDto($this->name, $this->cityId);
     }
 }

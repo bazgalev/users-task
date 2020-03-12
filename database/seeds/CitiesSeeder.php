@@ -15,6 +15,6 @@ class CitiesSeeder extends Seeder
         DB::table('cities')->truncate();
         Schema::enableForeignKeyConstraints();
 
-        factory(\App\Entities\City::class, 30)->create();
+        factory(\App\Eloquent\CityEloquent::class, 30)->create();
     }
 }

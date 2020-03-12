@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Entities\City;
+use App\Eloquent\CityEloquent;
 use App\Http\Requests\StoreUserRequest as StoreUserRequestAlias;
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UsersIndexRequest;
-use App\Http\Services\UserManageService;
+use App\Services\UserManageService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Response;
 
 class UsersController extends Controller
 {
-
     /**
      * @var UserManageService
      */
@@ -31,8 +30,8 @@ class UsersController extends Controller
      */
     public function index(UsersIndexRequest $request)
     {
-        $pagination = $this->service->getAll($request);
-        $cities = City::all();
+        $pagination = $this->service->getAll($request->getDto());
+        $cities = CityEloquent::all();
 
         return view('users.index', [
             'pagination' => $pagination,
@@ -48,7 +47,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        $cities = City::all();
+        $cities = CityEloquent::all();
         return view('users.create', [
             'cities' => $cities
         ]);
@@ -62,7 +61,7 @@ class UsersController extends Controller
      */
     public function store(StoreUserRequestAlias $request)
     {
-        $user = $this->service->create($request);
+        $user = $this->service->create($request->getDto());
 
         //TODO: view user details
 
@@ -79,7 +78,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = $this->service->one($id);
-        $cities = City::all();
+        $cities = CityEloquent::all();
 
         return view('users.edit', [
             'user' => $user,

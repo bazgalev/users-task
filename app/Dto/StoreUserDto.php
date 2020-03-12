@@ -2,27 +2,15 @@
 
 declare(strict_types=1);
 
-namespace App\Entities;
+namespace App\Http\Requests;
 
 
-use App\Contracts\CityEntityInterface;
-use App\Contracts\UserEntityInterface;
-
-class User implements UserEntityInterface
+class StoreUserDto
 {
-    /**
-     * @var CityEntityInterface
-     */
-    private CityEntityInterface $city;
-    /**
-     * @var int
-     */
-    private ?int $id;
     /**
      * @var string
      */
     private string $firstName;
-
     /**
      * @var string
      */
@@ -35,41 +23,19 @@ class User implements UserEntityInterface
      * @var string
      */
     private string $email;
-
     /**
-     * User constructor.
-     * @param int $id
-     * @param string $firstName
-     * @param string $lastName
-     * @param string $patronymic
-     * @param string $email
-     * @param CityEntityInterface $city
+     * @var int
      */
-    public function __construct(?int $id, string $firstName, string $lastName, string $patronymic, string $email, CityEntityInterface $city)
+    private int $cityId;
+
+    public function __construct(string $firstName, string $lastName, string $patronymic, string $email, int $cityId)
     {
-        $this->city = $city;
-        $this->id = $id;
+
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->patronymic = $patronymic;
         $this->email = $email;
-    }
-
-    /**
-     * @return CityEntityInterface
-     */
-    public function getCity(): CityEntityInterface
-    {
-        return $this->city;
-    }
-
-
-    /**
-     * @return int
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
+        $this->cityId = $cityId;
     }
 
     /**
@@ -102,5 +68,13 @@ class User implements UserEntityInterface
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCityId(): int
+    {
+        return $this->cityId;
     }
 }

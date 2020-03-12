@@ -1,6 +1,6 @@
 <?php
-/** @var \App\Entities\City[] $cities */
-/** @var \App\Entities\User $user */
+/** @var \App\Eloquent\CityEloquent[] $cities */
+/** @var \App\Eloquent\UserEloquent $user */
 ?>
 
 @extends('layouts.main')

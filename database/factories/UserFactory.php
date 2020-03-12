@@ -2,8 +2,8 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Entities\City;
-use App\Entities\User;
+use App\Eloquent\CityEloquent;
+use App\Eloquent\UserEloquent;
 use Faker\Generator as Faker;
 
 /*
@@ -17,7 +17,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(UserEloquent::class, function (Faker $faker) {
     $name = explode(' ', $faker->name);
     return [
         'first_name' => $name[0],
